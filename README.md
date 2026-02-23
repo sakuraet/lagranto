@@ -15,6 +15,8 @@ grep : searches text inside files
   - -R searches recursively in all directories 
   - caltra is the string im looking for 
   - n is print the line number
+nano: read & write files 
+cd .. : go up a directory
 
 ## directories
 
