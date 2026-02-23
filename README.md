@@ -1,11 +1,31 @@
 # lagranto
 
-## personal directory 
+## links 
+
+hongwei's github (python scripts):
+https://github.com/hongwei8sun/LAGRANTO/tree/main/Python_script_paper2
+
+## commands 
+
+less : reads file do q to quit
+ncdump : ncdump allows you to read netcdf files
+- ncdump -h P20000101_00 
+grep : searches text inside files
+- grep -R "caltra" -n .
+  - -R searches recursively in all directories 
+  - caltra is the string im looking for 
+  - n is print the line number
+
+## directories
 
 wd: /jet/home/stakahas/lagranto_runs 
+p files:  /ocean/projects/ees210020p/hsun3/LAGRANTO/LAGRANTO_P_files 
+model: /ocean/projects/ees210020p/hsun3/LAGRANTO/LAGRANTO_model_Simons
+bashrc: /jet/home/hsun3/bashrc_LAGRANTO
 
 cd ~/lagranto_runs/ 
-cd /ocean/projects/ees210020p/hsun3/LAGRANTO/LAGRANTO_model_Simons
+cd /ocean/projects/ees210020p/hsun3/LAGRANTO/
+LAGRANTO_model_Simons
 
 ## startf.final 
 
@@ -38,4 +58,15 @@ It can do things like:
 - “clean” builds (delete compiled outputs)
 - pull/update code from a repository (SVN path is in there)
 
-So: it’s for maintaining the software, not for running simulations.
+So: it’s for maintaining the software, not for running simulations. 
+
+## IMPORTANT 
+
+caltra 20000101_00 20000109_00 startf.test traj_20000101.1 -o 60 -j
+- caltra : LAGRANTO trajecory solver 
+- 20000101_00 : start time 
+- 20000109_00 : end time 
+- startf.test : injection locations 
+- traj_20000101.1 : output trajectory files 
+- -o 60 : output every 60 mins 
+- -j : job mode
