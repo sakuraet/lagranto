@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -p RM
+#SBATCH -t 24:00:00
+#SBATCH --ntasks-per-node=1
+#SBATCH --mail-type=END
+#SBATCH --mail-user=sakuraet@hawaii.edu
+#SBATCH -J LAGRANTO
+
+module load allocations intel/20.4 hdf5/1.12.0-intel20.4 openmpi/4.0.2-intel20.4
+
+export NETCDF=/ocean/projects/ees210020p/shared/netcdf
+export LD_LIBRARY_PATH=/ocean/projects/ees210020p/shared/netcdf/lib:$LD_LIBRARY_PATH
+export INC_LIBRARY_PATH=/ocean/projects/ees210020p/shared/netcdf/include:$LD_LIBRARY_PATH
+
+export LAGRANTO=/ocean/projects/ees210020p/hsun3/LAGRANTO/LAGRANTO_model_Simons
+export DYN_TOOLS=/ocean/projects/ees210020p/hsun3/LAGRANTO
+
+FCFLAGS="-I/ocean/projects/ees210020p/shared/netcdf/include"
+LDFLAGS="-L/ocean/projects/ees210020p/shared/netcdf/lib -lnetcdff"
+
+export PATH=${LAGRANTO}/bin:${NETCDF}/bin:$PATH
+
+# 1
+cd $SLURM_SUBMIT_DIR
+caltra 20000101_00 20000109_00 startf.test traj_20000101.1 -o 60 -j
